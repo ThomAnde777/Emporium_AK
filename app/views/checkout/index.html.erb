@@ -1,6 +1,4 @@
 <%= error_messages_for 'order' %>
-<%= link_to "atpakaļ", :action => "../katalogs/index" %>
-</br></br>
 <p><em>Jūsu pasūtījums ir apskatāms pirkumu grozā labajā pusē.</em></p>
 <form method="post" id="checkout" action="<%= url_for :action => :place_order %>">
   <fieldset>
@@ -51,7 +49,7 @@
       </select>
     </p>
     <p>
-      <label for="order_card_expiration_month">Izbeigšanās datums</label><br/>
+      <label for="order_card_expiration_month">Kartes derīguma termiņš</label><br/>
       <select name="order[card_expiration_month]">
         <%= options_for_select(%w(1 2 3 4 5 6 7 8 9 10 11 12), @order.card_expiration_month) %>
       </select>
@@ -60,7 +58,7 @@
       </select>
     </p>
     <p>
-      <label for="order_card_number">Kredītkartes nummurs</label><br/>
+      <label for="order_card_number">Kredītkartes numurs</label><br/>
       <%= text_field :order, :card_number %>
     </p>
     <p>

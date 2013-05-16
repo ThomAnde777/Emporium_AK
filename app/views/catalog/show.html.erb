@@ -1,0 +1,13 @@
+<dl>
+  <dd class="product_image_details"><%= image_tag url_for_file_column(:product, :product_image) unless @product.product_image.blank? %>
+  </dd>
+  <dt>Produkta tips</dt>
+  <dd><%= @product.product_type.name %></dd>
+  <dt>Ražotājs</dt>
+  <dd><%= @product.manufacturer.name %></dd>
+  <dt>Cena</dt>
+  <dd>$<%= sprintf("%0.2f", @product.price) -%></dd>
+  <dt>Apraksts</dt>
+  <dd><%= @product.description %></dd>
+</dl>
+<p><%= link_to "Atpakaļ", :action => "index" %></p>

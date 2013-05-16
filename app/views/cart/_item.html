@@ -1,5 +1,5 @@
-<%= link_to item.book.title, :action => "show",
-:controller => "catalog", :id => item.book.id %>
+<%= link_to item.product.name, :action => "show",
+:controller => "catalog", :id => item.product.id %>
 <%= pluralize(item.amount, "pc", "pcs") %>,
-$<%= item.price * item.amount %>
-(<%= remove_book_link("-", item.book) %>)
+$<%= sprintf("%.2f", item.price * item.amount) %>
+(<%= remove_product_link("-", item.product) %>)

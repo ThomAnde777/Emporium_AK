@@ -1,12 +1,5 @@
-<div  class="attributes_table">
-
-<table>
-  <tbody>
-
-  <tr>
-    <div  style="border: 1px solid grey; border-radius: 5px; width: 300px; padding-top: 5px; height: 22px; text-align: center;"><%= render :partial => 'navigation' %></div>
-  </tr>
-
+<%= render :partial => 'navigation' %>
+<table border="1">
   <tr>
     <th>ID</th>
     <th>Statuss</th>
@@ -16,24 +9,17 @@
     <th>Mainīts</th>
     <th></th>
   </tr>
-
   <% for order in @orders %>
       <tr>
         <td align="right"><%= order.id %></td>
         <td align="right"><%= order.status %></td>
-        <td align="right"><%= number_to_currency(sprintf("%.2f", order.total), :format => "%n %u") %></td>
-        <td align="right"><%= order.modelis.size %></td>
-        <td align="right"><%= order.created_at.strftime("%Y-%m-%d %I:%M") %></
-        td>
-        <td align="right"><%= order.updated_at.strftime("%Y-%m-%d %I:%M") %></
-        td>
+        <td align="right"><%= sprintf("%.2f", order.total) %></td>
+        <td align="right"><%= order.products.size %></td>
+        <td align="right"><%= order.created_at.strftime("%Y-%m-%d %I:%M") %></td>
+        <td align="right"><%= order.updated_at.strftime("%Y-%m-%d %I:%M") %></td>
         <td><%= link_to "Skatīt", :action => 'show', :id => order %></td>
       </tr>
   <% end %>
-
-  </tbody>
 </table>
-
-</div>
 
 <%= will_paginate @orders %>

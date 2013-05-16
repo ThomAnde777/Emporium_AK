@@ -1,0 +1,33 @@
+// Place all the styles related to the cart controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#shopping_cart {
+  border-left: 3px solid #38a2f9;
+  background: #7ed4f9;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 170px;
+  height: 100%;
+  padding: 5px 10px;
+
+  ul, li {
+    font-size: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  h3 {
+    font-size: 18px;
+    padding-top: 8em;
+  }
+}
+
+#cart_notice {
+  border: 2px solid #1776a9;
+  background: #33caff;
+  position: absolute;
+  padding: 5px;
+  left: 10px;
+}

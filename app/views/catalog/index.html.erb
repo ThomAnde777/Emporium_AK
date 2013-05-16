@@ -1,0 +1,6 @@
+<% provide(:title, 'Katalogs') %>
+<h1>Katalogs</h1>
+<%= render :partial => "products" %>
+<div class="pagination_container">
+<%= will_paginate @products %>
+</div>

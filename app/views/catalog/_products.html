@@ -1,21 +1,17 @@
+<div class="product_container">
 <ul id="products">
     <% for product in @products %>
     <li class="product" id="product_<%= product.id %>">
     <dl>
-    <dt><%= link_to product.title, :action => "show", :id => product %></dt>
-    <% for product_type in product.product_types %>
-    <dd><%= product_type.last_name %>, <%= product_type.first_name %></dd>
-    <% end %>
-    <dd><%= pluralize(product.page_count, t(:page)).html_safe %></dd>
-    <dd><%=t :price %>: $<%= sprintf("%.2f", product.price) %></dd>
-    <dd><small><%=t :publisher %>: <%= product.publisher.name %></small></dd>
-    <dd>
-    <strong>
-    <%= add_product_link("+", product) %>
-    </strong>
-    </dd>
+    <dt><%= link_to product.name, :action => "show", :id => product %></dt>
+    <dd class="product_image"><img src='<%= "#{product.product_image}".split("public")[1] %>'></dd>
+    <dd><strong>Tips:</strong> <%= product.product_type.name %></dd>
+    <dd><strong>Ražotājs:</strong> <%= product.manufacturer.name %></dd>
+    <dd><strong>Cena:</strong> $<%= sprintf("%.2f", product.price) %></dd>
+    <dd class="product_add"><%= add_product_link("Pievienot grozam", product) %></dd>
     </dl>
     </li>
     <%= draggable_element("product_#{product.id}", :revert => true) %>
     <% end %>
-    </ul>
+</ul>
+</div>

@@ -1,0 +1,91 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+.fieldWithErrors {
+    padding: 2px;
+    background-color: red;
+    display: table;
+}
+#errorExplanation {
+    width: 400px;
+    border: 2px solid red;
+    padding: 7px;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+}
+#errorExplanation h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    background-color: #c00;
+    color: #fff;
+}
+#errorExplanation p {
+    color: #333;
+    margin-bottom: 0;
+    padding: 5px;
+}
+#errorExplanation ul li {
+    font-size: 12px;
+    list-style: square;
+}
+#notice {
+    padding: 5px;
+    margin: 0px;
+    background-color: #FFCC80;
+}
+#tags_update {
+    font-size: 75%;
+    font-weight: normal;
+    margin: 0px;
+    padding: 0px;
+    border:1px solid black;
+    background-color: white;
+}
+#slogan {
+    position: relative;
+    font-size: 70%;
+    margin: 0px;
+    line-height: 0px;
+    top: 0px;
+    left: 80px;
+}
+
+#checkout fieldset {
+    border-top: 1px solid #efefef;
+    border-left: 1px solid #efefef;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    padding: 1em 1em 1em 1.5em;
+    width: 300px;
+    margin-bottom: 10px;
+}
+#checkout fieldset:hover {
+    border: 1px solid #3A789D;
+}
+#checkout legend {
+    font-weight: bold;
+}
+#checkout fieldset input {
+    margin: 1px;
+}
+#order_card_verification_value {
+    width: 50px;
+}
+#checkout fieldset input:focus {
+    background-color: #cccccc;
+}
