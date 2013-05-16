@@ -1,0 +1,14 @@
+#!/bin/env ruby
+# encoding: utf-8
+# plugin init file for rails
+# this file will be picked up by rails automatically and
+# add the file_column extensions to rails
+
+require 'file_column/file_column'
+require 'file_column/file_compat'
+require 'file_column/file_column_helper'
+require 'file_column/validations'
+
+ActiveRecord::Base.send(:include, FileColumn)
+ActionView::Base.send(:include, FileColumnHelper)
+ActiveRecord::Base.send(:include, FileColumn::Validations)

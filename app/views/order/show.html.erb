@@ -1,0 +1,113 @@
+<div id="kontaktinformacija" class="attributes_table">
+
+ <table>
+   <tbody>
+
+   <tr>
+      <h2>Kontaktinformācija</h2>
+   </tr>
+
+
+     <tr>
+       <th>E-PASTS</th>
+       <td><%= @order.email %></td>
+     </tr>
+     <tr>
+       <th>TELEFONS</th>
+       <td><%= @order.phone_number %></td>
+     </tr>
+   </tbody>
+ </table>
+
+  <span style="display: inline-block; position: absolute; bottom: 0px;"><%= link_to "atpakaļ", :action => "index" %></span>
+
+</div>
+
+
+<div id="piegades_informacija" class="attributes_table">
+
+    <table>
+      <tbody>
+
+      <tr>
+        <h2>Piegādes informācija</h2>
+      </tr>
+
+      <tr>
+        <th>VĀRDS</th>
+        <td><%= @order.ship_to_first_name %></td>
+      </tr>
+      <tr>
+        <th>UZVĀRDS</th>
+        <td><%= @order.ship_to_last_name %></td>
+      </tr>
+      <tr>
+        <th>ADRESE</th>
+        <td><%= @order.ship_to_address %></td>
+      </tr>
+      <tr>
+        <th>PILSĒTA</th>
+        <td><%= @order.ship_to_city %></td>
+      </tr>
+      <tr>
+        <th>ZIP KODS</th>
+        <td><%= @order.ship_to_postal_code %></td>
+      </tr>
+      <tr>
+        <th>VALSTS</th>
+        <td><%= @order.ship_to_country %></td>
+      </tr>
+      </tbody>
+    </table>
+
+</div>
+
+
+<div id="pasutijuma_informacija" class="attributes_table">
+
+  <table>
+    <tbody>
+
+    <tr>
+      <h2>Pasūtījuma informācija</h2>
+    </tr>
+
+    <tr>
+      <th>ID</th>
+      <td><%= @order.id %></td>
+    </tr>
+
+
+    <tr>
+      <th>PRECES</th>
+      <td>
+        <% for item in @order.order_items %>
+            <%= link_to item.modelis.nosaukums, :action => "show", :controller => "katalogs", :id => item.modelis.id %>
+            <%= pluralize(item.daudzums, "x", "x") %>, <%= number_to_currency(sprintf("%.2f", item.cena * item.daudzums), :format => "%n %u") %>
+            </br>
+        <% end %>
+      </td>
+    </tr>
+
+
+    <tr>
+      <th>KOPĀ</th>
+      <td style="font-weight: bold;">
+        Kopā: <%= number_to_currency(sprintf("%.2f", @order.total), :format => "%n %u") %>
+      </td>
+    </tr>
+   </tbody>
+ </table>
+
+ <table>
+   <tbody>
+    <tr>
+      <th style="border-bottom: 0px;"></th>
+      <td style="border-bottom: 0px;">
+        <%= button_to "Apstiprināt pasūtījumu", :action => 'close', :id => @order unless @order.closed? %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
